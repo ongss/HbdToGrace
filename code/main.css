@@ -1,0 +1,52 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+body{
+	background: black;
+}
+#gameStart{
+	display: none;
+}
+#gameOver{
+	width: 350px;
+	height: 170px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	display: none;
+	position: absolute;
+	border: solid white;
+}
+#game{
+	width: 900px;
+	padding: 0 40px; 
+	display: block;
+	margin: auto;
+}
+#main{
+	width: 900px;
+	height: 512px;
+	border: solid white;
+	display: block;
+	margin: 0 auto;
+}
+#header{
+	color: white;
+	float: left;
+	position: absolute;
+	margin: 60px 0; 
+	transform: translate(0%,-50%);
+}
+#status{
+	width: 300px;
+	height: 100px;
+	float: right;
+	border: solid white;
+	margin: 20px 0;
+}
+#creator{
+	color: white;
+	text-align: right;
+	margin: 20px 0;
+}
