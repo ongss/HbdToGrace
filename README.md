@@ -6,7 +6,7 @@
   Logo game >> Done
   Weight >> DONE
   Warning >> DONE
-  Game over
+  Game over >> DONE
   Grace's face >> DONE 
   Grace's size >> DONE
   Foods [hotdog,frenchfries] >> DONE
