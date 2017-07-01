@@ -8,7 +8,7 @@
   Grace's face >> DONE 
   Grace's size >> DONE
   Grace walk
-  Foods [steak,pizza,checken,hamburger]
+  Foods [hotdog,frenchfries] >> DONE
   Sweets [cup cake,ice cream,cake,donut] >> DONE
   
   
