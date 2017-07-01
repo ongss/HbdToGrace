@@ -4,10 +4,11 @@
   design web page >> DONE
   Background 
   Logo game
-  Warning 
+  Weight >> DONE
+  Warning >> DONE
+  Game over
   Grace's face >> DONE 
   Grace's size >> DONE
-  Grace walk
   Foods [hotdog,frenchfries] >> DONE
   Sweets [cup cake,ice cream,cake,donut] >> DONE
   
