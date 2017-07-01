@@ -1,12 +1,15 @@
 === HAPPY BIRTH DAY TO GRACE ===
 
 >> Graphic
-  design web page
+  design web page >> DONE
   Background 
-  Grace in many size
-  Grace change size
+  Logo game
+  Warning 
+  Grace's face >> DONE 
+  Grace's size 
   Grace walk
   Foods [cup cake,steak,pizza,wipcream,checken,etc]
+  
   
   
 >> Code
