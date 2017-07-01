@@ -3,7 +3,7 @@
 >> Graphic
   design web page >> DONE
   Background 
-  Logo game
+  Logo game >> Done
   Weight >> DONE
   Warning >> DONE
   Game over
