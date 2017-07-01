@@ -6,10 +6,10 @@
   Logo game
   Warning 
   Grace's face >> DONE 
-  Grace's size 
+  Grace's size >> DONE
   Grace walk
-  Foods [cup cake,steak,pizza,wipcream,checken,etc]
-  
+  Foods [steak,pizza,checken,hamburger]
+  Sweets [cup cake,ice cream,cake,donut] >> DONE
   
   
 >> Code
