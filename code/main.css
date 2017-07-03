@@ -16,12 +16,12 @@ body{
 	transform: translate(-50%,-50%);
 	display: none;
 	position: absolute;
-	border: solid white;
+	border: solid pink;
 }
 #game{
 	width: 768px;
 	height: 100%;
-	border: solid white;
+	border: solid pink;
 	padding: 0 40px; 
 	display: block;
 	margin: auto;
@@ -36,17 +36,16 @@ body{
 #header{
 	float: left;
 	position: absolute;
-	margin: 20px 0; 
+	margin: 10px 0; 
 	height="100"
 }
 #status{
 	height: 100px;
 	float: right;
-	border: solid white;
-	margin: 10px 0;
+	border: solid pink;
+	margin: 8px 20px 5px;
 }
 #creator{
-	color: white;
-	text-align: right;
-	margin: 20px 0;
+	float: right;
+	margin: 5px 0;
 }

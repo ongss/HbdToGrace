@@ -12,6 +12,15 @@ window.onload = function(){
 	var eat2 = document.getElementById('eat2');
 	var normal = document.getElementById('normal');
 	var openMouse = document.getElementById('openMouse');
+	var cake = document.getElementById('cake');
+	var cupcake = document.getElementById('cupcake');
+	var donut = document.getElementById('donut');
+	var ff = document.getElementById('ff');
+	var hotdog = document.getElementById('hotdog');
+	var icecream = document.getElementById('icecream');
+
+	var Food = [cake,cupcake,donut,ff,hotdog,icecream];
+	var Foods = [];
 
 	var main = document.getElementById('main');
 	var mainctx = main.getContext('2d');
@@ -78,42 +87,65 @@ window.onload = function(){
 				this.eatcnt = 0;
 				this.eatState = 'normal';
 			}
+			mainctx.drawImage(this.face,this.x,288,103,187);
+			mainctx.drawImage(this.body,this.x,288,103,187);
+			
+			//red point
+			mainctx.beginPath();
+			mainctx.fillStyle="red";
+			mainctx.fillRect(this.x+50,288,4,4);
+			mainctx.fillRect(this.x+65,290,4,4);
+			mainctx.fillRect(this.x+40,292,4,4);
+			mainctx.fillRect(this.x+30,300,4,4);
+			mainctx.fillRect(this.x+75,300,4,4);
+			this.weight1_CK = [[50,288],[65,290],[40,292]];
+		}
+	}
 
-			mainctx.drawImage(this.face,this.x,280,103.3,186.6);
-			mainctx.drawImage(this.body,this.x,280,103.3,186.6);
-			//mainctx.rect(this.x,280,103.3,186.6);
-			//mainctx.stroke();
+	function food(type,x,speed){
+		this.type = type;
+		this.x = x;
+		this.y = -60;
+		this.speed = speed;
+		this.fall = function(){
+			if(this.y < 420){
+				this.y += this.speed;
+			}
+		}
+		this.draw = function(){
+			mainctx.drawImage(this.type,this.x,this.y,60,60);
 		}
 	}
 
 
 	//function
 	function mainDisplay(){
-		mainctx.drawImage(bg,0,0,768,480.5);
+		mainctx.drawImage(bg,0,0,768,480);
+		genFoods();
 		Grace.draw();
 		requestAnimationFrame(mainDisplay);
 	}
 
-	function statusimg(lv){
+	function statusImg(lv){
 		if(lv === 1){
 			var img = new Image();
-			img.src = "./resource/pic/weight_lev1.png";	
+			img.src = "./resource/background/weight_lev1.png";	
 		}
 		if(lv === 2){
 			var img = new Image();
-			img.src = "./resource/pic/weight_lev2.png";	
+			img.src = "./resource/background/weight_lev2.png";	
 		}
 		if(lv === 3){
 			var img = new Image();
-			img.src = "./resource/pic/weight_lev3.png";	
+			img.src = "./resource/background/weight_lev3.png";	
 		}
 		if(lv === 4){
 			var img = new Image();
-			img.src = "./resource/pic/weight_lev4.png";	
+			img.src = "./resource/background/weight_lev4.png";	
 		}
 		if(lv === 5){
 			var img = new Image();
-			img.src = "./resource/pic/weight_lev5.png";	
+			img.src = "./resource/background/weight_lev5.png";	
 		}
 		img.id = "status";
 		img.style.width = '204px';	
@@ -121,7 +153,25 @@ window.onload = function(){
 		game.insertBefore(img,game.firstChild);
 	}
 
-	statusimg(1);
+	function genFoods(){
+		if(randomNum(0,10000)%50 === 0){
+			this.x = randomNum(0,738);
+			this.type = Food[randomNum(0,5)];
+			this.speed = randomNum(2,3);
+			var a = new food(this.type,this.x,this.speed);
+			Foods.push(a);
+		}
+		for(var i=0;i<Foods.length;i++){
+			Foods[i].fall();
+			Foods[i].draw();
+		}
+	}
+
+	function randomNum(min,max){
+		return Math.floor(Math.random()*(max-min+1))+min;
+	}
+
+	statusImg(1);
 
 	mainDisplay();
 
