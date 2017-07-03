@@ -3,7 +3,7 @@
 	padding: 0px;
 }
 body{
-	background: #d1d1d1;
+	background: pink;
 }
 #gameStart{
 	display: none;
@@ -34,7 +34,7 @@ body{
 #header{
 	float: left;
 	position: absolute;
-	margin: 35px 0; 
+	margin: 20px 0; 
 	height="100"
 }
 #status{
