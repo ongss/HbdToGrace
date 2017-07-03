@@ -19,7 +19,9 @@ body{
 	border: solid white;
 }
 #game{
-	width: 900px;
+	width: 768px;
+	height: 100%;
+	border: solid white;
 	padding: 0 40px; 
 	display: block;
 	margin: auto;
@@ -38,7 +40,6 @@ body{
 	height="100"
 }
 #status{
-	width: px;
 	height: 100px;
 	float: right;
 	border: solid white;
