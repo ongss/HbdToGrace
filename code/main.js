@@ -16,22 +16,24 @@ window.onload = function(){
 	var game = document.getElementById('game');
 
 	//class
-	function grace(x,size,eat){
+	function grace(x,size,eatState){
 		this.x = x;
 		this.size = size;
-		this.eat = eat;
+		this.eatState = eatState;
 		this.leftMove = function(){
-			if(this.x>=100){
+			if(this.x>=0){
 				this.x-=7;
 			}
 		}
 		this.rightMove = function(){
-			if(this.x<=800){
+			if(this.x<=666.7){
 				this.x+=7;
 			}
 		}
 		this.draw = function(){;
-			mainctx.drawImage(img,this.x,280,384,240);
+			mainctx.drawImage(img,this.x,280,103.3,186.6);
+			//mainctx.rect(this.x,280,103.3,186.6);
+			//mainctx.stroke();
 		}
 	}
 
