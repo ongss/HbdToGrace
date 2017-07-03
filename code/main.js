@@ -6,8 +6,8 @@ window.onload = function(){
 
 	var main = document.getElementById('main');
 	var mainctx = main.getContext('2d');
-	main.width = 900;
-	main.height = 562.5;
+	main.width = 768;
+	main.height = 480;
 
 	var Grace = new grace(400,1,true);
 
@@ -34,7 +34,7 @@ window.onload = function(){
 
 	//function
 	function mainDisplay(){
-		mainctx.drawImage(bg,0,0,900,562.5);
+		mainctx.drawImage(bg,0,0,768,480.5);
 		Grace.draw();
 		requestAnimationFrame(mainDisplay);
 	}
