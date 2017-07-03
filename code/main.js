@@ -2,16 +2,12 @@ window.onload = function(){
 	
 	//var
 	var img = document.getElementById('test');
+	var bg = document.getElementById('bg');
 
 	var main = document.getElementById('main');
 	var mainctx = main.getContext('2d');
 	main.width = 900;
-	main.height = 512;
-
-	var status = document.getElementById('status');
-	var statusctx = status.getContext('2d');
-	status.width = 300;
-	status.height = 100;
+	main.height = 562.5;
 
 	var Grace = new grace(400,1,true);
 
@@ -38,16 +34,9 @@ window.onload = function(){
 
 	//function
 	function mainDisplay(){
-		mainctx.fillStyle = 'rgba(0,0,0)';
-		mainctx.fillRect(0,0,900,512);
+		mainctx.drawImage(bg,0,0,900,562.5);
 		Grace.draw();
 		requestAnimationFrame(mainDisplay);
-	}
-
-	function statusDisplay(){
-		mainctx.fillStyle = 'rgba(0,0,0)';
-		mainctx.fillRect(0,0,900,512);
-		requestAnimationFrame(statusDisplay);
 	}
 
 	mainDisplay();
