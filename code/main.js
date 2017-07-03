@@ -48,23 +48,23 @@ window.onload = function(){
 	function statusimg(lv){
 		if(lv === 1){
 			var img = new Image();
-			img.src = "./resource/pic/weight_lev1.png";	
+			img.src = "./resource/background/weight_lev1.png";	
 		}
 		if(lv === 2){
 			var img = new Image();
-			img.src = "./resource/pic/weight_lev2.png";	
+			img.src = "./resource/background/weight_lev2.png";	
 		}
 		if(lv === 3){
 			var img = new Image();
-			img.src = "./resource/pic/weight_lev3.png";	
+			img.src = "./resource/background/weight_lev3.png";	
 		}
 		if(lv === 4){
 			var img = new Image();
-			img.src = "./resource/pic/weight_lev4.png";	
+			img.src = "./resource/background/weight_lev4.png";	
 		}
 		if(lv === 5){
 			var img = new Image();
-			img.src = "./resource/pic/weight_lev5.png";	
+			img.src = "./resource/background/weight_lev5.png";	
 		}
 		img.id = "status";
 		img.style.width = '204px';	
