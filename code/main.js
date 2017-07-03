@@ -31,7 +31,7 @@ window.onload = function(){
 			}
 		}
 		this.draw = function(){;
-			mainctx.drawImage(img,this.x,280,103.3,186.6);
+			mainctx.drawImage(img,this.x,288,103,187);
 			//mainctx.rect(this.x,280,103.3,186.6);
 			//mainctx.stroke();
 		}
