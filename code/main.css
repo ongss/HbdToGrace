@@ -38,11 +38,11 @@ body{
 	height="100"
 }
 #status{
-	width: 300px;
+	width: px;
 	height: 100px;
 	float: right;
 	border: solid white;
-	margin: 20px 0;
+	margin: 10px 0;
 }
 #creator{
 	color: white;
