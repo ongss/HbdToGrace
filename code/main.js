@@ -40,7 +40,7 @@ window.onload = function(){
 
 	//function
 	function mainDisplay(){
-		mainctx.drawImage(bg,0,0,768,480.5);
+		mainctx.drawImage(bg,0,0,768,480);
 		Grace.draw();
 		requestAnimationFrame(mainDisplay);
 	}
