@@ -33,6 +33,9 @@ window.onload = function(){
 
 	var game = document.getElementById('game');
 
+	var foodId = 0;
+	var delList = [];
+
 	//class
 	function grace(x,size,eatState){
 		this.x = x;
@@ -53,18 +56,39 @@ window.onload = function(){
 		}
 		this.draw = function(){
 
+			this.update();
+
+
+			mainctx.drawImage(this.face,this.x,288,103,187);
+			mainctx.drawImage(this.body,this.x,288,103,187);
+			
+			//red point
+			mainctx.beginPath();
+			mainctx.fillStyle="red";
+			mainctx.fillRect(this.x+50,288,4,4);
+			mainctx.fillRect(this.x+65,290,4,4);
+			mainctx.fillRect(this.x+40,292,4,4);
+			mainctx.fillRect(this.x+30,300,4,4);
+			mainctx.fillRect(this.x+75,300,4,4);
+			this.weight1_CK = [[50,288],[65,290],[40,292]];
+		}
+		this.update = function(){
 			//body
 			if(this.size === 1){
 				this.body = body1;
+				this.CK = [];
 			}
 			else if(this.size === 2){
 				this.body = body2;
+				this.CK = [];
 			}
 			else if(this.size === 3){
 				this.body = body3;
+				this.CK = [];
 			}
 			else if(this.size === 4){
 				this.body = body4;
+				this.CK = [];
 			}
 
 
@@ -87,33 +111,28 @@ window.onload = function(){
 				this.eatcnt = 0;
 				this.eatState = 'normal';
 			}
-			mainctx.drawImage(this.face,this.x,288,103,187);
-			mainctx.drawImage(this.body,this.x,288,103,187);
-			
-			//red point
-			mainctx.beginPath();
-			mainctx.fillStyle="red";
-			mainctx.fillRect(this.x+50,288,4,4);
-			mainctx.fillRect(this.x+65,290,4,4);
-			mainctx.fillRect(this.x+40,292,4,4);
-			mainctx.fillRect(this.x+30,300,4,4);
-			mainctx.fillRect(this.x+75,300,4,4);
-			this.weight1_CK = [[50,288],[65,290],[40,292]];
 		}
 	}
 
-	function food(type,x,speed){
+	function food(type,x,speed,id){
 		this.type = type;
 		this.x = x;
 		this.y = -60;
 		this.speed = speed;
+		this.id = id;
+		this.cnt = 0
 		this.fall = function(){
 			if(this.y < 420){
 				this.y += this.speed;
 			}
+			else{
+				this.cnt += 1;
+			}
 		}
 		this.draw = function(){
+			mainctx.globalAlpha = 1-(this.cnt/100);
 			mainctx.drawImage(this.type,this.x,this.y,60,60);
+			mainctx.globalAlpha = 1.0;
 		}
 	}
 
@@ -158,13 +177,30 @@ window.onload = function(){
 			this.x = randomNum(0,738);
 			this.type = Food[randomNum(0,5)];
 			this.speed = randomNum(2,3);
-			var a = new food(this.type,this.x,this.speed);
+			var a = new food(this.type,this.x,this.speed,foodId);
 			Foods.push(a);
+			foodId += 1;
 		}
 		for(var i=0;i<Foods.length;i++){
 			Foods[i].fall();
 			Foods[i].draw();
+			if(Foods[i].cnt >= 100){
+				delList.push(Foods[i].id);
+			}
 		}
+		delFoods();
+	}
+
+	function delFoods(){
+		for(var i=0;i<delList.length;i++){
+			for(var j=0;j<Foods.length;j++){
+				if(Foods[j].id===delList[i]){
+					console.log(Foods[j].id);
+					Foods.splice(j,1);
+				}
+			}
+		}
+		delList = [];
 	}
 
 	function randomNum(min,max){
