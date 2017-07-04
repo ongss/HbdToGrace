@@ -59,10 +59,11 @@ window.onload = function(){
 			this.update();
 
 
-			mainctx.drawImage(this.face,this.x,288,103,187);
-			mainctx.drawImage(this.body,this.x,288,103,187);
+			mainctx.drawImage(this.face,this.x,275,110,200);
+			mainctx.drawImage(this.body,this.x,275,110,200);
 			
 			//red point
+			/*
 			mainctx.beginPath();
 			mainctx.fillStyle="red";
 			mainctx.fillRect(this.x+50,288,4,4);
@@ -71,6 +72,7 @@ window.onload = function(){
 			mainctx.fillRect(this.x+30,300,4,4);
 			mainctx.fillRect(this.x+75,300,4,4);
 			this.weight1_CK = [[50,288],[65,290],[40,292]];
+			*/
 		}
 		this.update = function(){
 			//body
@@ -131,7 +133,7 @@ window.onload = function(){
 		}
 		this.draw = function(){
 			mainctx.globalAlpha = 1-(this.cnt/100);
-			mainctx.drawImage(this.type,this.x,this.y,60,60);
+			mainctx.drawImage(this.type,this.x,this.y,80,80);
 			mainctx.globalAlpha = 1.0;
 		}
 	}
