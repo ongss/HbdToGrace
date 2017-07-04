@@ -124,7 +124,7 @@ window.onload = function(){
 		this.id = id;
 		this.cnt = 0
 		this.fall = function(){
-			if(this.y < 420){
+			if(this.y < 400){
 				this.y += this.speed;
 			}
 			else{
@@ -170,7 +170,7 @@ window.onload = function(){
 		}
 		img.id = "status";
 		img.style.width = '204px';	
-		img.style.height = '100px';
+		img.style.height = '105px';
 		game.insertBefore(img,game.firstChild);
 	}
 

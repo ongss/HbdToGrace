@@ -3,7 +3,7 @@
 	padding: 0px;
 }
 body{
-	background: pink;
+	background-image: url("../resource/background/wallpaper.png");
 }
 #gameStart{
 	display: none;
@@ -21,7 +21,6 @@ body{
 #game{
 	width: 768px;
 	height: 100%;
-	border: solid pink;
 	padding: 0 40px; 
 	display: block;
 	margin: auto;
@@ -36,14 +35,13 @@ body{
 #header{
 	float: left;
 	position: absolute;
-	margin: 10px 0; 
+	margin: 15px 0; 
 	height: 100px;
 }
 #status{
 	height: 100px;
 	float: right;
-	border: solid pink;
-	margin: 5px 20px 10px;
+	margin: 8px 20px 10px;
 }
 #creator{
 	float: right;
