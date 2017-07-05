@@ -192,6 +192,7 @@ window.onload = function(){
 		this.speed = speed;
 		this.id = id;
 		this.cnt = 0
+
 		this.fall = function(){
 			if(this.y < 400){
 				this.y += this.speed;
