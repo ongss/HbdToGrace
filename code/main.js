@@ -188,7 +188,8 @@ window.onload = function(){
 	function food(type,x,speed,id){
 		this.type = type;
 		this.x = x;
-		this.y = -60;
+		//this.y = -60;
+		this.y = 400;
 		this.speed = speed;
 		this.id = id;
 		this.cnt = 0
@@ -211,8 +212,12 @@ window.onload = function(){
 	//function
 	function mainDisplay(){
 		mainctx.drawImage(bg,0,0,768,480);
-		genFoods();
-		Grace.draw();
+		//genFoods();
+		for(var i=0;i<Food.length;i++){
+			var test = new food(Food[i],i*100,0,0);
+			test.draw();
+		}
+		//Grace.draw();
 		requestAnimationFrame(mainDisplay);
 	}
 
