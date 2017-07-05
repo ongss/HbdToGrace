@@ -8,6 +8,8 @@ window.onload = function(){
 	var body2 = document.getElementById('body2');
 	var body3 = document.getElementById('body3');
 	var body4 = document.getElementById('body4');
+	var face = document.getElementById('face');
+	var eyeClose = document.getElementById('eyeClose');
 	var eat1 = document.getElementById('eat1');
 	var eat2 = document.getElementById('eat2');
 	var normal = document.getElementById('normal');
@@ -42,7 +44,8 @@ window.onload = function(){
 		this.size = size;
 		this.eatState = eatState;
 		this.eatcnt = 0;
-		this.face = null;
+		this.face = face;
+		this.mouse = null;
 
 		this.leftMove = function(){
 			if(this.x>=0){
@@ -58,8 +61,8 @@ window.onload = function(){
 
 			this.update();
 
-
 			mainctx.drawImage(this.face,this.x,275,110,200);
+			mainctx.drawImage(this.mouse,this.x,275,110,200);
 			mainctx.drawImage(this.body,this.x,275,110,200);
 			
 			//red point
@@ -96,23 +99,30 @@ window.onload = function(){
 
 			//face
 			if(this.eatState === 'eatting' && Math.floor(this.eatcnt/25)%2 === 0){
-				this.face = eat1;
+				this.mouse = eat1;
 				this.eatcnt+=1;
 			}
 			else if(this.eatState === 'eatting' && Math.floor(this.eatcnt/25)%2 === 1){
-				this.face = eat2;
+				this.mouse = eat2;
 				this.eatcnt+=1;
 			}
 			else if(this.eatState === 'near'){
-				this.face = openMouse;
+				this.mouse = openMouse;
 			}
 			else if(this.eatState === 'normal'){
-				this.face = normal;
+				this.mouse = normal;
 			}
+
 			if(this.eatcnt >= 250){
 				this.eatcnt = 0;
 				this.eatState = 'normal';
 			}
+			/*
+			else if(){
+				this.eatState = 'near';
+			}
+			*/
+
 		}
 	}
 
