@@ -1,5 +1,6 @@
 window.onload = function(){
-	
+
+	var mydata = touch;	
 	//var
 
 	//Resource
@@ -48,6 +49,7 @@ window.onload = function(){
 		this.mouse = null;
 		this.test = test;
 
+
 		this.leftMove = function(){
 			if(this.x>=0){
 				this.x-=7;
@@ -60,6 +62,7 @@ window.onload = function(){
 		}
 		this.draw = function(){
 
+			this.eatCK();
 			this.update();
 
 			mainctx.drawImage(this.face,this.x,275,110,200);
@@ -139,18 +142,22 @@ window.onload = function(){
 			//body
 			if(this.size === 1){
 				this.body = body1;
+				this.circle = mydata.grace.face.concat(mydata.grace.body1);
 				this.CK = [];
 			}
 			else if(this.size === 2){
 				this.body = body2;
+				this.circle = mydata.grace.face.concat(mydata.grace.body2);
 				this.CK = [];
 			}
 			else if(this.size === 3){
 				this.body = body3;
+				this.circle = mydata.grace.face.concat(mydata.grace.body3);
 				this.CK = [];
 			}
 			else if(this.size === 4){
 				this.body = body4;
+				this.circle = mydata.grace.face.concat(mydata.grace.body4);
 				this.CK = [];
 			}
 
@@ -180,15 +187,25 @@ window.onload = function(){
 				this.eatState = 'near';
 			}
 			*/
-
 		}
+		/*this.eatCK = function(){
+			console.log('yeah');
+			for(var i=0;i<Foods.length;i++){
+				for(var j=0;j<this.circle.length;j++){
+					console.log(Math.pow(Math.pow(Foods[i].x+40-this.x-this.circle[j].x,2)+Math.pow(Foods[i].y+40-this.circle[j].y,2),0.5)-56.6-this.circle[j].r)
+					if(Math.pow(Math.pow(Foods[i].x+40-this.x-this.circle[j].x,2)+Math.pow(Foods[i].y+40-this.circle[j].y,2),0.5)<56.6+this.circle[j].r){
+						console.log('hi');
+					}
+				}
+			}
+		}*/
 	}
 
 	function food(type,x,speed,id){
 		this.type = type;
 		this.x = x;
-		//this.y = -60;
-		this.y = 400;
+		this.y = -60;
+		//this.y = 400;
 		this.speed = speed;
 		this.id = id;
 		this.cnt = 0
@@ -297,12 +314,12 @@ window.onload = function(){
 	//function
 	function mainDisplay(){
 		mainctx.drawImage(bg,0,0,768,480);
-		//genFoods();
-		for(var i=0;i<Food.length;i++){
+		genFoods();
+		/*for(var i=0;i<Food.length;i++){
 			var test = new food(Food[i],i*100,0,0);
 			test.draw();
-		}
-		//Grace.draw();
+		}*/
+		Grace.draw();
 		requestAnimationFrame(mainDisplay);
 
 	}
