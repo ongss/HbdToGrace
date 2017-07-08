@@ -39,16 +39,19 @@ window.onload = function(){
 	var foodId = 0;
 	var delList = [];
 
+	var Round = 0;
+
 	//class
 	function grace(x,size,eatState){
 		this.x = x;
 		this.y = 275;
 		this.size = size;
 		this.eatState = eatState;
+		this.eyeState = "open"
 		this.eatcnt = 0;
+		this.eyecnt = 0;
 		this.face = face;
 		this.mouse = null;
-		this.test = test;
 
 
 		this.leftMove = function(){
@@ -62,15 +65,19 @@ window.onload = function(){
 			}
 		}
 		this.draw = function(){
-
-			this.eatCK();
+			//console.log(this.eatCK());
+			if(this.eatCK() === 2){
+				return 2;
+			}
 			this.update();
 
 			mainctx.drawImage(this.face,this.x,this.y,110,200);
 			mainctx.drawImage(this.mouse,this.x,this.y,110,200);
 			mainctx.drawImage(this.body,this.x,this.y,110,200);
-			//mainctx.drawImage(this.test,this.x,275,110,200);
-			
+			if(this.eyeState === "close"){
+				mainctx.drawImage(eyeClose,this.x,this.y,110,200);
+			}
+			//console.log(this.eyeState);
 			//red point
 			mainctx.beginPath();
 			mainctx.fillStyle="red";
@@ -117,10 +124,18 @@ window.onload = function(){
 			else if(this.eatState === 'normal'){
 				this.mouse = normal;
 			}
-
 			if(this.eatcnt >= 250){
 				this.eatcnt = 0;
 				this.eatState = 'normal';
+			}
+			//console.log(Math.floor(this.eyecnt/100)%4)
+			if(Math.floor(this.eyecnt/65)%4 === 0){
+				this.eyeState = "close";
+				this.eyecnt += 1;
+			}
+			else{
+				this.eyeState = "open";
+				this.eyecnt += 1;	
 			}
 
 		}
@@ -129,7 +144,13 @@ window.onload = function(){
 			for(var i=0;i<Foods.length;i++){
 				//console.log(Math.pow(Math.pow(Grace.x+55-Foods[i].x-40,2)+Math.pow(Grace.y+100-Foods[i].y-40,2),0.5)-141.5)
 				if(Math.pow(Math.pow(this.x+55-Foods[i].x-40,2)+Math.pow(this.y+100-Foods[i].y-40,2),0.5) <=141.5+56.6 && this.eatState !== 'eatting' && Foods[i].cnt == 0){
-					this.eatCK2(Foods[i]);
+					let x = this.eatCK2(Foods[i]); 
+					if(x===0){
+						return 0;
+					}
+					else if(x===2){
+						return 2;
+					}
 					s = 0;
 				}			
 			}
@@ -143,8 +164,12 @@ window.onload = function(){
 			for(var j=0;j<this.circle.length;j++){
 				//console.log(Math.pow(Math.pow(myfood.x+40-this.x-this.circle[j].x,2)+Math.pow(myfood.y+40-this.circle[j].y,2),0.5)-56.6-this.circle[j].r)
 				if(Math.pow(Math.pow(myfood.x+40-this.x-this.circle[j].x,2)+Math.pow(myfood.y+40-this.circle[j].y,2),0.5)<56.6+this.circle[j].r){
-					if(this.eat(myfood)===0){
+					let x = this.eat(myfood);
+					if(x===0){
 						return 0;
+					}
+					else if(x===2){
+						return 2
 					}
 					s = 0;
 				}
@@ -173,7 +198,7 @@ window.onload = function(){
 						}
 						else{
 							chStatusImg(this.size);
-							gameOver();
+							return 2;
 						}
 					}
 				}
@@ -217,7 +242,10 @@ window.onload = function(){
 	function mainDisplay(){
 		mainctx.drawImage(bg,0,0,768,480);
 		genFoods();
-		Grace.draw();
+		if(Grace.draw()===2){
+			gameOver();
+			return 0;
+		}
 		requestAnimationFrame(mainDisplay);
 
 	}
@@ -290,12 +318,21 @@ window.onload = function(){
 	}
 
 	function restart(){
-		var Foods = [];
-		var Grace = new grace(400,1,'normal');
-		var foodId = 0;
-		var delList = [];
-		statusImg(1);
+		if(Round === 0){
+			statusImg(1);
+		}
+		else{
+			Foods = [];
+			Grace = new grace(400,1,'normal');
+			foodId = 0;
+			delList = [];
+			chStatusImg(1);	
+		}
+		Round += 1
 		mainDisplay();
+		//console.log('restart');
+		
+		
 	}
 
 	function randomNum(min,max){
