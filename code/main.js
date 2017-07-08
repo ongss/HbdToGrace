@@ -68,23 +68,14 @@ window.onload = function(){
 			mainctx.drawImage(this.face,this.x,275,110,200);
 			mainctx.drawImage(this.mouse,this.x,275,110,200);
 			mainctx.drawImage(this.body,this.x,275,110,200);
-			mainctx.drawImage(this.test,this.x,275,110,200);
+			//mainctx.drawImage(this.test,this.x,275,110,200);
 			
 			//red point
 			mainctx.beginPath();
 			mainctx.fillStyle="red";
 			
+			/*
 			//face
-			mainctx.fillRect(this.x+56,303,1,1);
-			mainctx.fillRect(this.x+57,319,1,1);
-			mainctx.fillRect(this.x+57,333,1,1);
-			mainctx.fillRect(this.x+75,343,1,1);
-			mainctx.fillRect(this.x+39,343,1,1);
-			mainctx.fillRect(this.x+77,353,1,1);
-			mainctx.fillRect(this.x+36,353,1,1);
-			mainctx.fillRect(this.x+80,362,1,1);
-			mainctx.fillRect(this.x+33,361,1,1);
-
 			mainctx.arc(this.x+56,303,28,0,2*Math.PI);
 			mainctx.arc(this.x+57,319,30,0,2*Math.PI);
 			mainctx.arc(this.x+57,333,32,0,2*Math.PI);
@@ -94,26 +85,9 @@ window.onload = function(){
 			mainctx.arc(this.x+36,353,16,0,2*Math.PI);	
 			mainctx.arc(this.x+80,362,15,0,2*Math.PI);
 			mainctx.arc(this.x+33,361,15,0,2*Math.PI);
-
+			
+			
 			//body_1
-				///arm
-			mainctx.fillRect(this.x+32,380,1,1);
-			mainctx.fillRect(this.x+79,380,1,1);
-			mainctx.fillRect(this.x+29,386,1,1);
-			mainctx.fillRect(this.x+82,386,1,1);
-			mainctx.fillRect(this.x+27,394,1,1);
-			mainctx.fillRect(this.x+85,394,1,1);
-			mainctx.fillRect(this.x+24,400,1,1);
-			mainctx.fillRect(this.x+88,400,1,1);
-			mainctx.fillRect(this.x+20,407,1,1);
-			mainctx.fillRect(this.x+91,407,1,1);
-				///skirt
-			mainctx.fillRect(this.x+54,424,1,1);
-			mainctx.fillRect(this.x+67,441,1,1);
-			mainctx.fillRect(this.x+40,441,1,1);
-			mainctx.fillRect(this.x+30,448,1,1);
-			mainctx.fillRect(this.x+77,448,1,1);
-
 				///arm
 			mainctx.arc(this.x+32,380,5,0,2*Math.PI);
 			mainctx.arc(this.x+79,380,5,0,2*Math.PI);
@@ -131,7 +105,72 @@ window.onload = function(){
 			mainctx.arc(this.x+40,441,15,0,2*Math.PI);
 			mainctx.arc(this.x+30,448,6,0,2*Math.PI);
 			mainctx.arc(this.x+77,448,6,0,2*Math.PI);
+			
 
+			//body_2
+				///arm
+			mainctx.arc(this.x+32,380,5,0,2*Math.PI);
+			mainctx.arc(this.x+79,380,5,0,2*Math.PI);
+			mainctx.arc(this.x+29,386,5,0,2*Math.PI);
+			mainctx.arc(this.x+82,386,5,0,2*Math.PI);
+			mainctx.arc(this.x+25,394,6,0,2*Math.PI);
+			mainctx.arc(this.x+85,394,6,0,2*Math.PI);
+			mainctx.arc(this.x+22,400,6,0,2*Math.PI);
+			mainctx.arc(this.x+88,400,6,0,2*Math.PI);
+			mainctx.arc(this.x+17,407,5.5,0,2*Math.PI);
+			mainctx.arc(this.x+91,407,5,0,2*Math.PI);
+			
+				///skirt
+			mainctx.arc(this.x+54,424,25,0,2*Math.PI);
+			mainctx.arc(this.x+67,441,15,0,2*Math.PI);
+			mainctx.arc(this.x+40,441,15,0,2*Math.PI);
+			mainctx.arc(this.x+30,448,6,0,2*Math.PI);
+			mainctx.arc(this.x+77,448,6,0,2*Math.PI);
+			
+			
+			//body_3		
+				///arm
+			mainctx.arc(this.x+27,373,5,0,2*Math.PI);
+			mainctx.arc(this.x+27,380,5,0,2*Math.PI);
+			mainctx.arc(this.x+84,380,5,0,2*Math.PI);
+			mainctx.arc(this.x+23,386,5,0,2*Math.PI);
+			mainctx.arc(this.x+87,386,5,0,2*Math.PI);
+			mainctx.arc(this.x+21,394,6,0,2*Math.PI);
+			mainctx.arc(this.x+91,394,6,0,2*Math.PI);
+			mainctx.arc(this.x+17,400,6,0,2*Math.PI);
+			mainctx.arc(this.x+95,400,6,0,2*Math.PI);
+			mainctx.arc(this.x+13,407,5.5,0,2*Math.PI);
+			mainctx.arc(this.x+100,407,5,0,2*Math.PI);
+			
+				///skirt
+			mainctx.arc(this.x+55,424,28,0,2*Math.PI);
+			mainctx.arc(this.x+70,441,15,0,2*Math.PI);
+			mainctx.arc(this.x+39,441,15,0,2*Math.PI);
+			mainctx.arc(this.x+28,448,6,0,2*Math.PI);
+			mainctx.arc(this.x+80,448,6,0,2*Math.PI);
+			
+			
+			//body_4
+				///arm
+			mainctx.arc(this.x+23,373,5,0,2*Math.PI);	
+			mainctx.arc(this.x+23,380,5,0,2*Math.PI);
+			mainctx.arc(this.x+85,380,5,0,2*Math.PI);
+			mainctx.arc(this.x+21,386,5,0,2*Math.PI);
+			mainctx.arc(this.x+89,386,5,0,2*Math.PI);
+			mainctx.arc(this.x+17,394,6,0,2*Math.PI);
+			mainctx.arc(this.x+93,394,6,0,2*Math.PI);
+			mainctx.arc(this.x+12,400,6,0,2*Math.PI);
+			mainctx.arc(this.x+97,400,6,0,2*Math.PI);
+			mainctx.arc(this.x+7,407,5.5,0,2*Math.PI);
+			mainctx.arc(this.x+104,407,5,0,2*Math.PI);
+			
+				///skirt
+			mainctx.arc(this.x+55,424,31,0,2*Math.PI);
+			mainctx.arc(this.x+73,441,15,0,2*Math.PI);
+			mainctx.arc(this.x+35,441,15,0,2*Math.PI);
+			mainctx.arc(this.x+25,448,6,0,2*Math.PI);
+			mainctx.arc(this.x+82,448,6,0,2*Math.PI);
+			*/
 
 			mainctx.stroke();
 			
