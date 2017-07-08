@@ -22,7 +22,7 @@ window.onload = function(){
 	var hotdog = document.getElementById('hotdog');
 	var icecream = document.getElementById('icecream');
 
-	var Food = [cake,cupcake,donut,ff,hotdog,icecream];
+	var Food = [{type:cake,name:"cake"},{type:cupcake,name:"cupcake"},{type:donut,name:"donut"},{type:ff,name:"ff"},{type:hotdog,name:"hotdog"},{type:icecream,name:"icecream"}];
 	var Foods = [];
 
 	var main = document.getElementById('main');
@@ -32,7 +32,7 @@ window.onload = function(){
 
 	var status = document.getElementById('status');
 
-	var Grace = new grace(400,1,'eatting');
+	var Grace = new grace(400,1,'normal');
 
 	var game = document.getElementById('game');
 
@@ -42,6 +42,7 @@ window.onload = function(){
 	//class
 	function grace(x,size,eatState){
 		this.x = x;
+		this.y = 275;
 		this.size = size;
 		this.eatState = eatState;
 		this.eatcnt = 0;
@@ -65,112 +66,16 @@ window.onload = function(){
 			this.eatCK();
 			this.update();
 
-			mainctx.drawImage(this.face,this.x,275,110,200);
-			mainctx.drawImage(this.mouse,this.x,275,110,200);
-			mainctx.drawImage(this.body,this.x,275,110,200);
+			mainctx.drawImage(this.face,this.x,this.y,110,200);
+			mainctx.drawImage(this.mouse,this.x,this.y,110,200);
+			mainctx.drawImage(this.body,this.x,this.y,110,200);
 			//mainctx.drawImage(this.test,this.x,275,110,200);
 			
 			//red point
 			mainctx.beginPath();
 			mainctx.fillStyle="red";
 			
-			/*
-			//face
-			mainctx.arc(this.x+56,303,28,0,2*Math.PI);
-			mainctx.arc(this.x+57,319,30,0,2*Math.PI);
-			mainctx.arc(this.x+57,333,32,0,2*Math.PI);
-			mainctx.arc(this.x+75,343,16,0,2*Math.PI);
-			mainctx.arc(this.x+39,343,16,0,2*Math.PI);
-			mainctx.arc(this.x+77,353,16,0,2*Math.PI);
-			mainctx.arc(this.x+36,353,16,0,2*Math.PI);	
-			mainctx.arc(this.x+80,362,15,0,2*Math.PI);
-			mainctx.arc(this.x+33,361,15,0,2*Math.PI);
-			
-			
-			//body_1
-				///arm
-			mainctx.arc(this.x+32,380,5,0,2*Math.PI);
-			mainctx.arc(this.x+79,380,5,0,2*Math.PI);
-			mainctx.arc(this.x+29,386,5,0,2*Math.PI);
-			mainctx.arc(this.x+82,386,5,0,2*Math.PI);
-			mainctx.arc(this.x+27,394,6,0,2*Math.PI);
-			mainctx.arc(this.x+85,394,6,0,2*Math.PI);
-			mainctx.arc(this.x+24,400,6,0,2*Math.PI);
-			mainctx.arc(this.x+88,400,6,0,2*Math.PI);
-			mainctx.arc(this.x+20,407,5,0,2*Math.PI);
-			mainctx.arc(this.x+91,407,5,0,2*Math.PI);
-				///skirt
-			mainctx.arc(this.x+54,424,25,0,2*Math.PI);
-			mainctx.arc(this.x+67,441,15,0,2*Math.PI);
-			mainctx.arc(this.x+40,441,15,0,2*Math.PI);
-			mainctx.arc(this.x+30,448,6,0,2*Math.PI);
-			mainctx.arc(this.x+77,448,6,0,2*Math.PI);
-			
-
-			//body_2
-				///arm
-			mainctx.arc(this.x+32,380,5,0,2*Math.PI);
-			mainctx.arc(this.x+79,380,5,0,2*Math.PI);
-			mainctx.arc(this.x+29,386,5,0,2*Math.PI);
-			mainctx.arc(this.x+82,386,5,0,2*Math.PI);
-			mainctx.arc(this.x+25,394,6,0,2*Math.PI);
-			mainctx.arc(this.x+85,394,6,0,2*Math.PI);
-			mainctx.arc(this.x+22,400,6,0,2*Math.PI);
-			mainctx.arc(this.x+88,400,6,0,2*Math.PI);
-			mainctx.arc(this.x+17,407,5.5,0,2*Math.PI);
-			mainctx.arc(this.x+91,407,5,0,2*Math.PI);
-			
-				///skirt
-			mainctx.arc(this.x+54,424,25,0,2*Math.PI);
-			mainctx.arc(this.x+67,441,15,0,2*Math.PI);
-			mainctx.arc(this.x+40,441,15,0,2*Math.PI);
-			mainctx.arc(this.x+30,448,6,0,2*Math.PI);
-			mainctx.arc(this.x+77,448,6,0,2*Math.PI);
-			
-			
-			//body_3		
-				///arm
-			mainctx.arc(this.x+27,373,5,0,2*Math.PI);
-			mainctx.arc(this.x+27,380,5,0,2*Math.PI);
-			mainctx.arc(this.x+84,380,5,0,2*Math.PI);
-			mainctx.arc(this.x+23,386,5,0,2*Math.PI);
-			mainctx.arc(this.x+87,386,5,0,2*Math.PI);
-			mainctx.arc(this.x+21,394,6,0,2*Math.PI);
-			mainctx.arc(this.x+91,394,6,0,2*Math.PI);
-			mainctx.arc(this.x+17,400,6,0,2*Math.PI);
-			mainctx.arc(this.x+95,400,6,0,2*Math.PI);
-			mainctx.arc(this.x+13,407,5.5,0,2*Math.PI);
-			mainctx.arc(this.x+100,407,5,0,2*Math.PI);
-			
-				///skirt
-			mainctx.arc(this.x+55,424,28,0,2*Math.PI);
-			mainctx.arc(this.x+70,441,15,0,2*Math.PI);
-			mainctx.arc(this.x+39,441,15,0,2*Math.PI);
-			mainctx.arc(this.x+28,448,6,0,2*Math.PI);
-			mainctx.arc(this.x+80,448,6,0,2*Math.PI);
-			
-			
-			//body_4
-				///arm
-			mainctx.arc(this.x+23,373,5,0,2*Math.PI);	
-			mainctx.arc(this.x+23,380,5,0,2*Math.PI);
-			mainctx.arc(this.x+85,380,5,0,2*Math.PI);
-			mainctx.arc(this.x+21,386,5,0,2*Math.PI);
-			mainctx.arc(this.x+89,386,5,0,2*Math.PI);
-			mainctx.arc(this.x+17,394,6,0,2*Math.PI);
-			mainctx.arc(this.x+93,394,6,0,2*Math.PI);
-			mainctx.arc(this.x+12,400,6,0,2*Math.PI);
-			mainctx.arc(this.x+97,400,6,0,2*Math.PI);
-			mainctx.arc(this.x+7,407,5.5,0,2*Math.PI);
-			mainctx.arc(this.x+104,407,5,0,2*Math.PI);
-			
-				///skirt
-			mainctx.arc(this.x+55,424,31,0,2*Math.PI);
-			mainctx.arc(this.x+73,441,15,0,2*Math.PI);
-			mainctx.arc(this.x+35,441,15,0,2*Math.PI);
-			mainctx.arc(this.x+25,448,6,0,2*Math.PI);
-			mainctx.arc(this.x+82,448,6,0,2*Math.PI);
-			*/
+		
 
 			mainctx.stroke();
 			
@@ -182,22 +87,18 @@ window.onload = function(){
 			if(this.size === 1){
 				this.body = body1;
 				this.circle = mydata.grace.face.concat(mydata.grace.body1);
-				this.CK = [];
 			}
 			else if(this.size === 2){
 				this.body = body2;
 				this.circle = mydata.grace.face.concat(mydata.grace.body2);
-				this.CK = [];
 			}
 			else if(this.size === 3){
 				this.body = body3;
 				this.circle = mydata.grace.face.concat(mydata.grace.body3);
-				this.CK = [];
 			}
 			else if(this.size === 4){
 				this.body = body4;
 				this.circle = mydata.grace.face.concat(mydata.grace.body4);
-				this.CK = [];
 			}
 
 
@@ -221,30 +122,71 @@ window.onload = function(){
 				this.eatcnt = 0;
 				this.eatState = 'normal';
 			}
-			/*
-			else if(){
+
+		}
+		this.eatCK = function(){
+			let s = 1;
+			for(var i=0;i<Foods.length;i++){
+				//console.log(Math.pow(Math.pow(Grace.x+55-Foods[i].x-40,2)+Math.pow(Grace.y+100-Foods[i].y-40,2),0.5)-141.5)
+				if(Math.pow(Math.pow(this.x+55-Foods[i].x-40,2)+Math.pow(this.y+100-Foods[i].y-40,2),0.5) <=141.5+56.6 && this.eatState !== 'eatting' && Foods[i].cnt == 0){
+					this.eatCK2(Foods[i]);
+					s = 0;
+				}			
+			}
+			if(s===1 && this.eatState !== 'eatting'){
+				this.eatState = "normal";
+			}
+		}
+
+		this.eatCK2 = function(myfood){
+			let s = 1;
+			for(var j=0;j<this.circle.length;j++){
+				//console.log(Math.pow(Math.pow(myfood.x+40-this.x-this.circle[j].x,2)+Math.pow(myfood.y+40-this.circle[j].y,2),0.5)-56.6-this.circle[j].r)
+				if(Math.pow(Math.pow(myfood.x+40-this.x-this.circle[j].x,2)+Math.pow(myfood.y+40-this.circle[j].y,2),0.5)<56.6+this.circle[j].r){
+					if(this.eat(myfood)===0){
+						return 0;
+					}
+					s = 0;
+				}
+			}
+			if(s===0 && this.eatState !== 'eatting'){
 				this.eatState = 'near';
 			}
-			*/
+			else if(this.eatState !== 'eatting'){
+				this.eatting = 'normal';
+			}
 		}
-		/*this.eatCK = function(){
-			console.log('yeah');
-			for(var i=0;i<Foods.length;i++){
-				for(var j=0;j<this.circle.length;j++){
-					console.log(Math.pow(Math.pow(Foods[i].x+40-this.x-this.circle[j].x,2)+Math.pow(Foods[i].y+40-this.circle[j].y,2),0.5)-56.6-this.circle[j].r)
-					if(Math.pow(Math.pow(Foods[i].x+40-this.x-this.circle[j].x,2)+Math.pow(Foods[i].y+40-this.circle[j].y,2),0.5)<56.6+this.circle[j].r){
-						console.log('hi');
+
+		this.eat = function(myfood){
+			let name = myfood.name;
+			for(var k=0;k<this.circle.length;k++){
+				//console.log('yeah')
+				for(var l=0;l<mydata.foods[name].length;l++){
+					//console.log(Math.pow(Math.pow(myfood.x+mydata.foods[name][l].x-this.x-this.circle[k].x,2)+Math.pow(myfood.y+mydata.foods[name][l].y-this.y-this.circle[k].x,2),0.5)-this.circle[k].r-mydata.foods[name][l].r)
+					if(Math.pow(Math.pow(myfood.x+mydata.foods[name][l].x-this.x-this.circle[k].x,2)+Math.pow(myfood.y+mydata.foods[name][l].y-this.circle[k].y,2),0.5)<=this.circle[k].r+mydata.foods[name][l].r){
+						if(this.size < 4){
+							delList.push(myfood.id);
+							this.eatState = 'eatting';
+							this.size += 1;
+							chStatusImg(this.size);
+							return 0;
+						}
+						else{
+							chStatusImg(this.size);
+							gameOver();
+						}
 					}
 				}
 			}
-		}*/
+		}
+
 	}
 
-	function food(type,x,speed,id){
+	function food(type,name,x,speed,id){
+		this.name = name;
 		this.type = type;
 		this.x = x;
 		this.y = -60;
-		//this.y = 400;
 		this.speed = speed;
 		this.id = id;
 		this.cnt = 0
@@ -265,86 +207,7 @@ window.onload = function(){
 			//red point
 			mainctx.beginPath();
 			mainctx.fillStyle="red";
-			/*
-			//cake
-			mainctx.fillRect(this.x+37,this.y+27,1,1);
-			mainctx.fillRect(this.x+50,this.y+41,1,1);
-			mainctx.fillRect(this.x+28,this.y+47,1,1);
-			mainctx.fillRect(this.x+16,this.y+61,1,1);
-			mainctx.fillRect(this.x+69,this.y+55,1,1);
-			mainctx.arc(this.x+37,this.y+27,13,0,2*Math.PI);
-			mainctx.arc(this.x+50,this.y+41,24,0,2*Math.PI);
-			mainctx.arc(this.x+28,this.y+47,22,0,2*Math.PI);
-			mainctx.arc(this.x+16,this.y+61,11,0,2*Math.PI);
-			mainctx.arc(this.x+69,this.y+55,6,0,2*Math.PI);
-			
-			//cupCake
-			mainctx.fillRect(this.x+39,this.y+20,1,1);
-			mainctx.fillRect(this.x+39,this.y+45,1,1);
-			mainctx.fillRect(this.x+39,this.y+51,1,1);
-			mainctx.fillRect(this.x+26,this.y+48,1,1);
-			mainctx.fillRect(this.x+53,this.y+47,1,1);
-			mainctx.arc(this.x+39,this.y+20,9,0,2*Math.PI);
-			mainctx.arc(this.x+39,this.y+45,22,0,2*Math.PI);
-			mainctx.arc(this.x+39,this.y+51,24,0,2*Math.PI);
-			mainctx.arc(this.x+26,this.y+48,13,0,2*Math.PI);
-			mainctx.arc(this.x+53,this.y+47,13,0,2*Math.PI);
 
-			//donut
-			mainctx.fillRect(this.x+40,this.y+41,1,1);
-			mainctx.fillRect(this.x+27,this.y+41,1,1);
-			mainctx.fillRect(this.x+52,this.y+41,1,1);
-			mainctx.arc(this.x+40,this.y+41,23,0,2*Math.PI);
-			mainctx.arc(this.x+27,this.y+41,21,0,2*Math.PI);
-			mainctx.arc(this.x+52,this.y+41,21,0,2*Math.PI);
-			
-
-			//ff
-			mainctx.fillRect(this.x+29,this.y+21,1,1);
-			mainctx.fillRect(this.x+28,this.y+35,1,1);
-			mainctx.fillRect(this.x+51,this.y+19,1,1);
-			mainctx.fillRect(this.x+53,this.y+35,1,1);
-			mainctx.fillRect(this.x+40,this.y+52.5,1,1);
-			mainctx.fillRect(this.x+27,this.y+63,1,1);
-			mainctx.fillRect(this.x+53,this.y+64,1,1);
-			mainctx.arc(this.x+29,this.y+21,14,0,2*Math.PI);
-			mainctx.arc(this.x+28,this.y+35,14,0,2*Math.PI);
-			mainctx.arc(this.x+51,this.y+19,15,0,2*Math.PI);
-			mainctx.arc(this.x+53,this.y+35,13,0,2*Math.PI);
-			mainctx.arc(this.x+40,this.y+52.5,24,0,2*Math.PI);
-			mainctx.arc(this.x+27,this.y+63,11,0,2*Math.PI);
-			mainctx.arc(this.x+53,this.y+64,11,0,2*Math.PI);
-			
-
-			//hotDog
-			mainctx.fillRect(this.x+11,this.y+53,1,1);
-			mainctx.fillRect(this.x+24,this.y+49,1,1);
-			mainctx.fillRect(this.x+40,this.y+43,1,1);
-			mainctx.fillRect(this.x+56,this.y+33,1,1);
-			mainctx.fillRect(this.x+67,this.y+34,1,1);
-			mainctx.fillRect(this.x+71,this.y+24,1,1);
-			mainctx.arc(this.x+11,this.y+53,9,0,2*Math.PI);
-			mainctx.arc(this.x+24,this.y+49,17,0,2*Math.PI);
-			mainctx.arc(this.x+40,this.y+43,17,0,2*Math.PI);
-			mainctx.arc(this.x+56,this.y+33,17,0,2*Math.PI);
-			mainctx.arc(this.x+67,this.y+34,10,0,2*Math.PI);
-			mainctx.arc(this.x+71,this.y+24,7.5,0,2*Math.PI);
-
-			//iceCream
-			mainctx.fillRect(this.x+40,this.y+24,1,1);
-			mainctx.fillRect(this.x+25,this.y+35,1,1);
-			mainctx.fillRect(this.x+55,this.y+35,1,1);
-			mainctx.fillRect(this.x+40,this.y+41,1,1);
-			mainctx.fillRect(this.x+40,this.y+56,1,1);
-			mainctx.fillRect(this.x+40,this.y+64,1,1);
-			mainctx.arc(this.x+40,this.y+24,19,0,2*Math.PI);
-			mainctx.arc(this.x+25,this.y+35,6,0,2*Math.PI);
-			mainctx.arc(this.x+55,this.y+35,6,0,2*Math.PI);
-			mainctx.arc(this.x+40,this.y+41,15,0,2*Math.PI);
-			mainctx.arc(this.x+40,this.y+56,11,0,2*Math.PI);
-			mainctx.arc(this.x+40,this.y+64,10,0,2*Math.PI);
-			*/
-	
 			mainctx.stroke();
 		}
 	}
@@ -354,10 +217,6 @@ window.onload = function(){
 	function mainDisplay(){
 		mainctx.drawImage(bg,0,0,768,480);
 		genFoods();
-		/*for(var i=0;i<Food.length;i++){
-			var test = new food(Food[i],i*100,0,0);
-			test.draw();
-		}*/
 		Grace.draw();
 		requestAnimationFrame(mainDisplay);
 
@@ -390,12 +249,17 @@ window.onload = function(){
 		game.insertBefore(img,game.firstChild);
 	}
 
+	function chStatusImg(lv){
+		game.removeChild(game.childNodes[0]);
+		statusImg(lv);
+	}
+
 	function genFoods(){
 		if(randomNum(0,10000)%50 === 0){
 			this.x = randomNum(0,738);
 			this.type = Food[randomNum(0,5)];
 			this.speed = randomNum(2,3);
-			var a = new food(this.type,this.x,this.speed,foodId);
+			var a = new food(this.type.type,this.type.name,this.x,this.speed,foodId);
 			Foods.push(a);
 			foodId += 1;
 		}
@@ -413,7 +277,7 @@ window.onload = function(){
 		for(var i=0;i<delList.length;i++){
 			for(var j=0;j<Foods.length;j++){
 				if(Foods[j].id===delList[i]){
-					console.log(Foods[j].id);
+					//console.log(Foods[j].id);
 					Foods.splice(j,1);
 				}
 			}
@@ -421,15 +285,24 @@ window.onload = function(){
 		delList = [];
 	}
 
+	function gameOver(){
+		restart();
+	}
+
+	function restart(){
+		var Foods = [];
+		var Grace = new grace(400,1,'normal');
+		var foodId = 0;
+		var delList = [];
+		statusImg(1);
+		mainDisplay();
+	}
+
 	function randomNum(min,max){
 		return Math.floor(Math.random()*(max-min+1))+min;
 	}
 
-	statusImg(1);
-
-	mainDisplay();
-
-
+	restart();
 
 	//test
 
