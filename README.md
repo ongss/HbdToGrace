@@ -14,13 +14,13 @@
   
   
 >> Code
-  display
+  display >>DONE
   Timer
-  Grace walk
-  Grace touch food
-  Grace change size(timepass >> down || touch food >> up)
-  eating
-  Food fall && Food from side
+  Grace walk >>DONE
+  Grace touch food >>DONE
+  Grace change size(timepass >> down || touch food >> up) >>DONE
+  eating >> DONE
+  Food fall && Food from side >>DONE
   gameover
   reset game
   

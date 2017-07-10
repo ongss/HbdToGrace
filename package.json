@@ -1,0 +1,27 @@
+{
+  "name": "hbdtograce",
+  "version": "1.0.0",
+  "description": "just for hbd grace",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ongss/HbdToGrace.git"
+  },
+  "keywords": [
+    "grace",
+    "hbd"
+  ],
+  "author": "ong&punsa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ongss/HbdToGrace/issues"
+  },
+  "homepage": "https://github.com/ongss/HbdToGrace#readme",
+  "dependencies": {
+    "ejs": "^2.5.6",
+    "express": "^4.15.3"
+  }
+}

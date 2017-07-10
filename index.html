@@ -10,7 +10,6 @@
 	<div id="resource">
 		<img id="bg" style="display: none;" src="./resource/background/background.png">
 		<img id="test" style="display: none;" src="./resource/Grace Full/graceFull.png">
-		<img id="testFood" style="display: none;" src="./resource/Foods/cakeA.png">
 		<img id="body1" style="display: none;" src="./resource/Grace's body/grace_lev1.png">
 		<img id="body2" style="display: none;" src="./resource/Grace's body/grace_lev2.png">
 		<img id="body3" style="display: none;" src="./resource/Grace's body/grace_lev3.png">
@@ -28,17 +27,19 @@
 		<img id="hotdog" style="display: none;" src="./resource/Foods/hotDog.png">
 		<img id="icecream" style="display: none;" src="./resource/Foods/iceCream.png">
 	</div>
-	<div id=gameStart>
+	<div id="filter">
+		<div id=gameStart>
+		</div>
+		<div id="game" class="game">
+			<img id="header" src="./resource/background/name.png" height="100">
+			<div style="clear: both;"></div>
+			<canvas id="main"></canvas>
+			<img id="creator" src="./resource/background/credit.png" height="40">
+		</div>
 	</div>
-	<div id="game">
-		<img id="header" src="./resource/background/name.png" height="100">
-		<div style="clear: both;"></div>
-		<canvas id="main"></canvas>
-		<img id="creator" src="./resource/background/credit.png" height="40">
-	</div>
-	<div id="gameOver">
-		<h1 id="gameOverMssg">GameOver JAAA</h1>
-		<h4 id="totalTime">dummy</h4>
+	<div id="gameOver" class="gameOver">
+		<img id="gameOverImg" src="./resource/background/gameOver.png">
+		<button id="restart" class="button">Restart</botton>
 	</div>
 </body>
 </html>

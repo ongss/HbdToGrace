@@ -32,9 +32,13 @@ window.onload = function(){
 
 	var status = document.getElementById('status');
 
-	var Grace = new grace(400,1,'normal');
+	var Grace = new grace(324,1,'normal');
 
 	var game = document.getElementById('game');
+	var GameOver = document.getElementById('gameOver');
+	var restartbtn = document.getElementById('restart');
+	
+	var filter = document.getElementById('filter');
 
 	var foodId = 0;
 	var delList = [];
@@ -67,6 +71,12 @@ window.onload = function(){
 		this.draw = function(){
 			//console.log(this.eatCK());
 			if(this.eatCK() === 2){
+				mainctx.drawImage(this.face,this.x,this.y,110,200);
+				mainctx.drawImage(this.mouse,this.x,this.y,110,200);
+				mainctx.drawImage(this.body,this.x,this.y,110,200);
+				if(this.eyeState === "close"){
+					mainctx.drawImage(eyeClose,this.x,this.y,110,200);
+				}
 				return 2;
 			}
 			this.update();
@@ -77,15 +87,6 @@ window.onload = function(){
 			if(this.eyeState === "close"){
 				mainctx.drawImage(eyeClose,this.x,this.y,110,200);
 			}
-			//console.log(this.eyeState);
-			//red point
-			mainctx.beginPath();
-			mainctx.fillStyle="red";
-			
-		
-
-			mainctx.stroke();
-			
 			
 			
 		}
@@ -197,7 +198,7 @@ window.onload = function(){
 							return 0;
 						}
 						else{
-							chStatusImg(this.size);
+							chStatusImg(this.size+1);
 							return 2;
 						}
 					}
@@ -241,11 +242,12 @@ window.onload = function(){
 	//function
 	function mainDisplay(){
 		mainctx.drawImage(bg,0,0,768,480);
-		genFoods();
 		if(Grace.draw()===2){
+
 			gameOver();
 			return 0;
 		}
+		genFoods();
 		requestAnimationFrame(mainDisplay);
 
 	}
@@ -314,10 +316,16 @@ window.onload = function(){
 	}
 
 	function gameOver(){
-		restart();
+		GameOver.style.display = "block";
+		GameOver.className = "appear";
+		filter.className = "filter";
+		//restart();
 	}
 
 	function restart(){
+		GameOver.className = ""
+		GameOver.style.display = "none";
+		filter.className = 'noneFilter';
 		if(Round === 0){
 			statusImg(1);
 		}
@@ -354,4 +362,8 @@ window.onload = function(){
 			Grace.rightMove();
 		}
 	});
+
+	restartbtn.addEventListener('click',function(){
+		restart();
+	})
 }
