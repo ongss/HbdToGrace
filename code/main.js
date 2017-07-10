@@ -318,7 +318,7 @@ window.onload = function(){
 	function gameOver(){
 		GameOver.style.display = "block";
 		GameOver.className = "appear";
-		filter.className = "filter";
+		//filter.className = "filter";
 		//restart();
 	}
 
